@@ -1,0 +1,17 @@
+# syntax=docker/dockerfile:1
+# escape=`
+FROM confluentinc/cp-kafka-connect-base:7.3.6
+
+RUN confluent-hub install --no-prompt debezium/debezium-connector-postgresql:2.4.2
+
+USER root
+
+RUN yum install jq -y
+
+COPY debezium_connector_account.sh .
+COPY debezium_connector_order.sh .
+COPY check_installed_plugins.sh .
+
+RUN chmod +x ./debezium_connector_account.sh
+RUN chmod +x ./debezium_connector_order.sh
+RUN chmod +x ./check_installed_plugins.sh

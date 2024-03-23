@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://order-db:5432/order_db
+  kafka:
+    bootstrap-servers: broker:29092

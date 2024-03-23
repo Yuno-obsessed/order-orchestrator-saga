@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://account-db:5432/account_db
+  kafka:
+    bootstrap-servers: broker:29092
